@@ -1,0 +1,112 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-buttons',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+  <h1 class="h3 mb-4 text-gray-800">Buttons</h1>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Circle Buttons</h6>
+        </div>
+        <div class="card-body">
+          <p>Use Font Awesome Icons along with the circle buttons as shown below.</p>
+          <div class="mb-2"><code>.btn-circle</code></div>
+          <a class="btn btn-primary btn-circle"><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-success btn-circle"><i class="fas fa-check"></i></a>
+          <a class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a>
+          <a class="btn btn-warning btn-circle"><i class="fas fa-exclamation-triangle"></i></a>
+          <a class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+
+          <div class="mt-4 mb-2"><code>.btn-circle .btn-sm</code></div>
+          <a class="btn btn-primary btn-circle btn-sm"><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a>
+          <a class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
+          <a class="btn btn-warning btn-circle btn-sm"><i class="fas fa-exclamation-triangle"></i></a>
+          <a class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+
+          <div class="mt-4 mb-2"><code>.btn-circle .btn-lg</code></div>
+          <a class="btn btn-primary btn-circle btn-lg"><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-success btn-circle btn-lg"><i class="fas fa-check"></i></a>
+          <a class="btn btn-info btn-circle btn-lg"><i class="fas fa-info-circle"></i></a>
+          <a class="btn btn-warning btn-circle btn-lg"><i class="fas fa-exclamation-triangle"></i></a>
+          <a class="btn btn-danger btn-circle btn-lg"><i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
+        </div>
+        <div class="card-body">
+          <p>Google and Facebook buttons with each company's color.</p>
+          <a class="btn btn-google btn-block"><i class="fab fa-google fa-fw"></i> .btn-google</a>
+          <a class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-fw"></i> .btn-facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Split Buttons with Icon</h6>
+        </div>
+        <div class="card-body">
+          <p>Use <code>.btn-icon-split</code> with helper classes.</p>
+          <a class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+            <span class="text">Split Button Primary</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50"><i class="fas fa-check"></i></span>
+            <span class="text">Split Button Success</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-info btn-icon-split">
+            <span class="icon text-white-50"><i class="fas fa-info-circle"></i></span>
+            <span class="text">Split Button Info</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-warning btn-icon-split">
+            <span class="icon text-white-50"><i class="fas fa-exclamation-triangle"></i></span>
+            <span class="text">Split Button Warning</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-danger btn-icon-split">
+            <span class="icon text-white-50"><i class="fas fa-trash"></i></span>
+            <span class="text">Split Button Danger</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-secondary btn-icon-split">
+            <span class="icon text-white-50"><i class="fas fa-arrow-right"></i></span>
+            <span class="text">Split Button Secondary</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-light btn-icon-split">
+            <span class="icon text-gray-600"><i class="fas fa-arrow-right"></i></span>
+            <span class="text">Split Button Light</span>
+          </a>
+          <div class="mb-4"></div>
+          <p>Also works with small and large button classes!</p>
+          <a class="btn btn-primary btn-icon-split btn-sm">
+            <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+            <span class="text">Split Button Small</span>
+          </a>
+          <div class="my-2"></div>
+          <a class="btn btn-primary btn-icon-split btn-lg">
+            <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+            <span class="text">Split Button Large</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  `,
+})
+export class ButtonsComponent {}

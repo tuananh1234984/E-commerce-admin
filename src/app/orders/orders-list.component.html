@@ -1,0 +1,71 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Quản Lý Đơn Hàng</h1>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Tất cả đơn hàng</h6>
+        <input class="form-control form-control-sm w-auto"
+        placeholder="Tìm theo Mã đơn hoặc khách hàng..."
+        [(ngModel)]="q"
+        />
+    </div>
+    <div class="card-bodyp-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0 align-middle">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Khách hàng</th>
+                        <th class="text-right">Tổng tiền</th>
+                        <th>Ngày đặt</th>
+                        <th>Trạng thái</th>
+                        <th class="text-center">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of filteredOrders()">
+                        <td>
+                            <strong>{{ order.maDonHang }}</strong>
+                        </td>
+                        <td>{{ order.khachHang }}</td>
+                        <td class="text-right">{{ order.tongTien | number}}</td>
+                        <td>{{ order.ngay.toDate() | date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                            <span class="badge" [ngClass]="{
+                            'badge-warning': order.trangThai === 'Đang xử lý',
+                            'badge-info': order.trangThai === 'Đang giao',
+                            'badge-success' : order.trangThai === 'Hoàn tất',
+                            'badge-secondary' : order.trangThai === 'Đã hủy'
+                            }">
+                            {{ order.trangThai}}
+                        </span>
+                        </td>
+                        <td class="text-center" style="width: 200px;">
+                            <div *ngIf="isLoading[order.id!]; else statusSelect">
+                                <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                    <span class="sr-only">Đang lưu...</span>
+                                </div>
+                            </div>
+                            <ng-template #statusSelect>
+                                <select class="form-control form-control-sm"
+                                [value]="order.trangThai"
+                                (change)="onStatusChange(order.id, $any($event.target).value)"
+                                [disabled]="order.trangThai === 'Hoàn tất' || order.trangThai === 'Đã hủy'">
+                                <option value="Đang xử lý">Đang xử lý</option>
+                                <option value="Đang giao">Đang giao</option>
+                                <option value="Hoàn tất">Hoàn tất</option>
+                                <option value="Đã hủy">Đã hủy</option>
+                            </select>
+                            </ng-template>
+                        </td>
+                    </tr>
+                    <tr *ngIf="filteredOrders().length === 0">
+                        <td colspan="6" class="text-center p-4">
+                            {{q ? 'Không tìm thấy đơn hàng nào.' : 'Chưa có đơn hàng nào.'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

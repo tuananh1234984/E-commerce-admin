@@ -1,0 +1,44 @@
+// functions/firestore.rules
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Hàm helper (đã có từ trước)
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    // Collection 'users' (đã có)
+    match /users/{userId} {
+      allow read: if request.auth.uid != null; // Cho phép user đã đăng nhập đọc
+      allow write: if getUserRole() == 'admin'; // Chỉ Admin được Sửa/Xóa user
+    }
+
+    // Collection 'dashboard_stats' (đã có)
+    match /dashboard_stats/{docId} {
+      allow read: if request.auth.uid != null; // User đăng nhập được đọc
+      allow write: if false; // KHÔNG AI được ghi (chỉ Cloud Function)
+    }
+
+    // Collection 'orders' (đã có)
+    match /orders/{orderId} {
+       allow read, write: if getUserRole() in ['admin', 'editor'];
+    }
+
+    // --- 1. THÊM MỚI BẢO MẬT CHO 'PRODUCTS' ---
+    match /products/{productId} {
+      // Ai được Đọc? Admin và Editor
+      allow read: if request.auth.uid != null && getUserRole() in ['admin', 'editor'];
+
+      // Ai được Ghi (Tạo, Sửa, Xóa)? Admin và Editor
+      allow write: if request.auth.uid != null && getUserRole() in ['admin', 'editor'];
+    }
+
+    // (Thêm các rules cho 'categories', 'customers' ở đây...)
+    // --- Thêm mới quy tắc cho 'categories' (Danh mục) ---
+    match /categories/{categoryId} {
+      // Cho phép Admin và Editor Đọc và Ghi (Tạo, Sửa, Xóa)
+      allow read, write: if request.auth.uid != null && getUserRole() in ['admin', 'editor'];
+    }
+  }
+}
