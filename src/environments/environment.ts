@@ -1,3 +1,8 @@
+// Firebase Configuration
+// To use this application, you need to configure Firebase:
+// 1. Create a Firebase project at https://console.firebase.google.com/
+// 2. Go to Project Settings > General > Your apps
+// 3. Copy your Firebase configuration values and paste them below
 export const environment = {
     production: true,
     firebase: {
