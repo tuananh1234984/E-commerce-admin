@@ -1,13 +1,15 @@
 export const environment = {
     production: true,
     firebase: {
-        apiKey: "AIzaSyDlyylfFVxqLMrm9bkSwCjgTs7aU6cZ708",
-        authDomain: "e-commerce-admin-c4804.firebaseapp.com",
-        projectId: "e-commerce-admin-c4804",
-        storageBucket: "e-commerce-admin-c4804.appspot.com",
-        messagingSenderId: "767593427019",
-        appId: "1:767593427019:web:0760b97e1e25326eb35dce",
-        measurementId: "G-2PW4B0QX1F",
+        // Replace these with your Firebase project configuration
+        // You can find these values in Firebase Console -> Project Settings
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID",
         // Optional App Check config for web; fill these to enable.
         recaptchaV3SiteKey: "",
         appCheckDebugToken: ""
