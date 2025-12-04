@@ -1,17 +1,29 @@
 export const environment = {
-    production: false,
+    production: true,
     firebase: {
-        apiKey: "AIzaSyDlyylfFVxqLMrm9bkSwCjgTs7aU6cZ708",
-        authDomain: "e-commerce-admin-c4804.firebaseapp.com",
-        projectId: "e-commerce-admin-c4804",
-        storageBucket: "e-commerce-admin-c4804.firebasestorage.app",
-        messagingSenderId: "767593427019",
-        appId: "1:767593427019:web:0760b97e1e25326eb35dce",
-        measurementId: "G-2PW4B0QX1F",
+        // Thay thế bằng API Key từ Firebase Console của bạn
+        apiKey: "YOUR_FIREBASE_API_KEY_HERE",
+        
+        // Thay thế bằng Auth Domain (thường là project-id.firebaseapp.com)
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        
+        // Project ID của bạn
+        projectId: "YOUR_PROJECT_ID",
+        
+        // Storage Bucket (thường là project-id.appspot.com)
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        
+        // Sender ID (dãy số)
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        
+        // App ID (1:xxxxxxxx:web:xxxxxxx)
+        appId: "YOUR_APP_ID_HERE",
+        
+        // Measurement ID (G-XXXXXXXX)
+        measurementId: "G-XXXXXXXXXX",
+        
         // Optional App Check config for web; fill these to enable.
-        // For local development, you can set appCheckDebugToken to true to print a token in the console,
-        // then paste that token here and keep it during development.
-        recaptchaV3SiteKey: "",
-        appCheckDebugToken: ""
+        recaptchaV3SiteKey: "YOUR_RECAPTCHA_KEY_OR_LEAVE_EMPTY",
+        appCheckDebugToken: "YOUR_DEBUG_TOKEN_OR_LEAVE_EMPTY"
     }
 };
